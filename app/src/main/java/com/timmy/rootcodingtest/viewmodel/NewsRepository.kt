@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.toList
 import retrofit2.Retrofit
 import javax.inject.Inject
 
-class MainRepository @Inject constructor() {
+class NewsRepository @Inject constructor() {
 
     @Inject
     lateinit var retrofit: Retrofit

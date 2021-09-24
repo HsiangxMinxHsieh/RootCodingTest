@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RootCodingTest">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.NewsActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

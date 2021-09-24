@@ -1,28 +1,28 @@
-package com.timmy.rootcodingtest
+package com.timmy.rootcodingtest.ui
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import com.timmy.rootcodingtest.databinding.ActivityMainBinding
-import com.timmy.rootcodingtest.ui.NewsAdapter
-import com.timmy.rootcodingtest.viewmodel.MainViewModel
+import com.timmy.rootcodingtest.R
+import com.timmy.rootcodingtest.databinding.ActivityNewsBinding
+import com.timmy.rootcodingtest.viewmodel.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class NewsActivity : AppCompatActivity() {
 
-    private val viewModel: MainViewModel by lazy { ViewModelProvider(this).get(MainViewModel::class.java) }
+    private val viewModel: NewsViewModel by lazy { ViewModelProvider(this).get(NewsViewModel::class.java) }
 
-    private lateinit var mBinding: ActivityMainBinding
+    private lateinit var mBinding: ActivityNewsBinding
 
     private lateinit var adapter: NewsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_news)
 
         initData()
 
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         adapter = NewsAdapter()
 
         viewModel.getLiveDataInRealm().observe(this, {
-            Timber.d("MainActivity中收到資料！大小是=>${it.size}")
+//            Timber.d("MainActivity中收到資料！大小是=>${it.size}")
             adapter.list = it
             adapter.notifyDataSetChanged()
         })
